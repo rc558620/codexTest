@@ -1,0 +1,81 @@
+/* 近似还原你截图的“蓝底+白描边”风格 */
+@white: #fff;
+
+.otabs {
+  --ot-height: 56px;
+  --ot-gap: 24px;
+  --ot-bar-w: 42px;
+  --ot-bar-x: 0px;
+
+  position: relative;
+  display: inline-flex;
+  gap: var(--ot-gap);
+}
+
+/* 白色短下划线（跟随激活项，居中） */
+.otabs__bar {
+  position: absolute;
+  bottom: -14px;                 /* 与图一致：按钮下方留白 */
+  left: 0;
+  width: var(--ot-bar-w);
+  height: 3px;
+  border-radius: 3px;
+  background: @white;
+  transform: translateX(var(--ot-bar-x));
+  transition: transform .25s ease;
+  pointer-events: none;
+}
+
+/* 单个按钮：透明背景 + 白描边；圆角略大一点更贴图 */
+.otabs__btn {
+  position: relative;
+  min-width: 134px;              /* 你可以按需调整或去掉 */
+  height: var(--ot-height);
+  padding: 0 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  color: @white;
+  background: transparent;       /* 未选中为透明 */
+  border: 1px solid @white;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+
+  /* 轻微高光描边 + 内阴影，接近“玻璃感” */
+  // box-shadow:
+  //   0 0 0 1px fade(@white, 25%) inset,
+  //   0 2px 8px rgba(0, 0, 0, .08);
+
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+
+  &.is-disabled { opacity: .5; cursor: not-allowed; }
+
+  &:hover {
+    border-color: @white;
+    color: @white;
+  }
+}
+
+/* 选中态：浅白渐变填充 + 更亮描边（仍保持蓝底可见） */
+.otabs__btn.is-active {
+  color: @white;
+  border-color: @white;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.10) 100%);
+}
+
+/* 图标与文字 */
+.otabs__icon {
+  font-size: 20px;               /* 可替换为你的 svg/iconfont */
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.otabs__label {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: .02em;
+}

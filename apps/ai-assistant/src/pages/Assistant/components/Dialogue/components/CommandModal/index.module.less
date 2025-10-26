@@ -1,0 +1,41 @@
+/* —— 视觉要点 —— 
+   1) 标题：高亮蓝紫渐变 + 强 text-glow
+   2) 胶囊：中心白弧度 + 细白描边 + 内凹阴影 + 大范围蓝色外光晕
+*/
+
+.qc-wrap {
+}
+
+.qc-title {
+  background: linear-gradient(90deg, #e2f0ff, #deedff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 列表垂直排列 */
+.qc-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 让所有子项左对齐且宽度自适应 */
+  gap: 12px; /* 可选：增加项间距 */
+}
+
+/* 胶囊按钮 */
+.qc-chip {
+  background: radial-gradient(0% 0% at 0% 0%, #e2f0ff 0%, #deedff 100%), #ffffff;
+  box-shadow: 2px 0 6px 0px #3c88de;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 12px;
+  display: inline-flex;
+}
+
+/* 文本：浅蓝描、顶部高光、到底部略深的渐变 */
+.qc-chip__txt {
+  background: linear-gradient(90deg, #3c88de, #3f56ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}

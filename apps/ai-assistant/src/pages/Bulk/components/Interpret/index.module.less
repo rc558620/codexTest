@@ -1,0 +1,46 @@
+.interpret-mobile-close {
+  position: absolute;
+  top: -28px;
+  right: 12px;
+  width: 14px;
+  height: 14px;
+}
+.interpret-mobile {
+  background-image: url('@/assets/images/Interpret@2x.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 80vh;
+  box-sizing: border-box;
+  padding: 60px 12px 12px 12px;
+  .interpret-mobile-title {
+    color: #1d2129;
+    z-index: 1;
+    font-size: 20px;
+    font-weight: 800;
+    position: relative;
+    margin-bottom: 0;
+    &:after {
+      content: '';
+      pointer-events: none;
+      z-index: -1;
+      background: linear-gradient( 90deg, #007FBA 0%, rgba(0,127,186,0) 100%);
+      width: 101px;
+      height: 7px;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+    }
+  }
+  .interpret-mobile-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+.my-drawer__content {
+  background-color: transparent;
+  opacity: 1;
+  box-shadow: initial;
+}

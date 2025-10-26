@@ -1,0 +1,203 @@
+.mpa-analysis {
+  box-sizing: border-box;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 4px 18px 1px #007fba3d;
+}
+
+.mpa-analysis__list {
+  display: grid;
+  row-gap: 16px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+.mpa-analysis-card {
+  padding: 16px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8px;
+}
+.mpa-analysis-card--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.mpa-analysis__head {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+.mpa-analysis__titles {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0e2540;
+}
+.mpa-analysis__badge {
+  font-size: 12px;
+  background: #007fba;
+  color: #fff;
+  transform: skewX(-10deg);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 5px;
+  font-weight: 500;
+}
+
+/* ===== panes：2×2 网格 ===== */
+.mpa-analysis__panes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.mpa-analysis__pane {
+  background: linear-gradient(135deg, rgba(0, 127, 186, 0.05) 0%, rgba(132, 195, 229, 0.02) 100%);
+  border-radius: 4px;
+  padding: 14px 16px 12px 16px;
+  box-sizing: border-box;
+
+  /* 2×2 内网格 */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  row-gap: 6px;
+}
+
+/* 四个定位格 */
+.mpa-grid__tl {
+  grid-column: 1;
+  grid-row: 1;
+}
+.mpa-grid__bl {
+  grid-column: 1;
+  grid-row: 2;
+}
+.mpa-grid__tr {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.mpa-grid__br {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  .lastChain {
+    font-size: 14px;
+    font-weight: 500;
+    color: #888;
+    margin-right: 5px;
+  }
+}
+
+/* 左侧文案 */
+.mpa-analysis__label {
+  background: linear-gradient(180deg, rgba(0, 127, 186, 0.1) 0%, rgba(0, 127, 186, 0) 100%);
+  border-radius: 24px;
+  width: fit-content;
+  height: 16px;
+  white-space: nowrap;
+  padding: 0 8px;
+  box-sizing: border-box;
+  .analysis__label__span {
+    font-size: 14px;
+    color: #007fba;
+    font-weight: 500;
+    position: relative;
+    top: 3px;
+  }
+}
+.forecastTitle {
+  background: linear-gradient(180deg, rgba(0, 180, 42, 0.1) 0%, rgba(0, 180, 42, 0) 100%);
+  .forecastTitle__span {
+    color: #00b42a;
+  }
+}
+.mpa-analysis__date {
+  font-size: 14px;
+  color: #8a96a3;
+  font-weight: 500;
+}
+
+/* 右上价格 */
+.mpa-analysis__num {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2470b3;
+  line-height: 1;
+}
+.mpa-analysis__num--blue {
+  color: #0b69c8;
+}
+.mpa-analysis__unit {
+  font-size: 12px;
+  color: #8fa2b3;
+}
+
+/* 右下环比：涨红、跌绿、持平灰 */
+.mpa-analysis__trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+.mpa-analysis__trend--up {
+  color: #f53f3f;
+} /* ↑ 红 */
+.mpa-analysis__trend--down {
+  color: #00b42a;
+} /* ↓ 绿 */
+.mpa-analysis__trend--flat {
+  color: #7a8a99;
+}
+.mpa-analysis__trend-arrow {
+  line-height: 1;
+}
+
+/* 底部按钮 */
+.mpa-analysis__deep {
+  margin: 12px 0 0 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(90deg, rgba(0, 127, 186, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
+  color: #1f3b4d;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.mpa-analysis__deep:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.mpa-analysis__deep-icon {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+}
+.mpa-analysis__deep-text {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  font-size: 14px;
+}
+.mpa-analysis__deep-arrow {
+  font-size: 18px;
+  color: #6c899c;
+}

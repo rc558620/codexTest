@@ -1,0 +1,129 @@
+/* 容器：淡入淡出 + 指针穿透控制（仅关闭时禁用点击） */
+.emodal {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+.emodal--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.emodal--close {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 遮罩：与 antd 类似的渐显 */
+.emodal__mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.emodal--open .emodal__mask.is-show {
+  opacity: 1;
+}
+.emodal--close .emodal__mask.is-show {
+  opacity: 0;
+}
+.emodal__mask.is-hide {
+  display: none;
+}
+
+/* 居中包裹（避免 transform 影响可用 portalToBody） */
+.emodal__wrap {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px; /* 防止面板阴影被裁剪 */
+  box-sizing: border-box;
+}
+
+/* 面板：模仿 antd Modal 样式盒，带入场 scale 动效 */
+.emodal__panel {
+  position: relative;
+  box-sizing: border-box;
+  background: #dbeef7;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 18px 1px #007fba3d;
+
+  /* 动画（与 antd 类似的 scale + fade） */
+  transform: scale(0.96);
+  opacity: 0;
+  transition:
+    transform 200ms cubic-bezier(0.2, 0, 0, 1),
+    opacity 200ms ease;
+     &:focus {
+    outline: none;            /* ✅ 面板无外圈 */
+  }
+}
+.emodal--open .emodal__panel {
+  transform: scale(1);
+  opacity: 1;
+}
+.emodal--close .emodal__panel {
+  transform: scale(0.96);
+  opacity: 0;
+}
+
+/* 关闭按钮：右上角，hover 态与 antd 近似 */
+.emodal__close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  appearance: none;
+  border: none;
+  background: transparent;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  padding: 0; /* 避免默认 padding 影响 */
+  box-sizing: content-box; /* 宽高只算内容区，方便像素对齐 */
+  line-height: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.45);
+  transition:
+    background 120ms ease,
+    color 120ms ease,
+    transform 120ms ease;
+  outline: none; /* 由 :focus-visible 控制 */
+   &:focus,
+  &:focus-visible {
+    outline: none;            /* ✅ 移除浏览器默认 focus ring */
+    box-shadow: none;         /* ✅ 不画任何外圈/阴影 */
+  }
+}
+.emodal__close:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.88);
+}
+.emodal__close:active {
+  transform: scale(0.96);
+}
+.emodal__close:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 127, 186, 0.35);
+}
+
+/* 包裹 svg 以实现 20x20 居中不抖动（解决 hover 时“X”不居中问题） */
+.emodal__close-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  line-height: 0;
+}
+
+/* 内容区：溢出滚动由容器控制（可配合 height/maxHeight） */
+.emodal__body {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}

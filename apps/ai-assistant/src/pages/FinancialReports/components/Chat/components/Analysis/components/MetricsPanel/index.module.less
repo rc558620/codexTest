@@ -1,0 +1,114 @@
+@blue: #2f81f7;
+@purple: #7c6af2;
+@bg: #f4f8ff;
+@card: #eef5ff;
+
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 12px 12px 6px;
+  height: 320px;
+  width: 432px;
+}
+
+.row {
+  border-radius: 12px;
+  transition: background 0.2s ease;
+
+  &[data-open] {
+    background: #fafcff;
+  }
+}
+
+.header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 12px 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+
+  &:hover {
+    background: #f8faff;
+  }
+}
+
+.headerText {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #111827;
+}
+.subtitle {
+  color: #9aa6b2;
+  font-size: 14px;
+}
+
+.chevron {
+  color: #9aa6b2;
+  transition: transform 0.2s ease;
+}
+.open {
+  transform: rotate(180deg);
+}
+
+.collapse {
+  padding: 0 !important;
+  border: 0 !important;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  will-change: height, opacity;
+  transform: translateZ(0);
+  contain: layout paint;
+}
+
+.animating .content {
+  pointer-events: none;
+} /* 动画时禁 hover 触发重绘 */
+
+.content {
+  margin: 0;
+  background: #eef5ff;
+  border-radius: 14px;
+  padding: 8px 14px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  row-gap: 5px;
+  column-gap: 12px;
+}
+
+.badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  color: #6b7a90;
+}
+.hollow {
+  width: 11px;
+  height: 11px;
+  border-radius: 50;
+  border: 1px solid @blue; /* 颜色由内联 style 覆盖 */
+  background: transparent;
+  display: inline-block;
+}
+.badgeText {
+  font-size: 14px;
+  color: #666;
+}
+
+.value {
+  justify-self: end;
+  font-size: 14px; /* 截图同等大小 */
+  font-weight: 500;
+}

@@ -1,0 +1,69 @@
+/* 基础变量（可按需覆盖） */
+@bd-radius: 16px;
+@bd-mask-bg: rgba(0, 0, 0, 0.45);
+@bd-panel-bg: #fff;
+@bd-shadow: 0 -12px 32px rgba(0, 0, 0, 0.12);
+@bd-dur: 520ms;
+@bd-ease: cubic-bezier(.2,.8,.2,1);
+
+.bdrawer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; // 关闭态防止抢事件
+  &--open {
+    pointer-events: auto;
+  }
+}
+
+/* 遮罩 */
+.bdrawer__mask {
+  position: absolute;
+  inset: 0;
+  background: @bd-mask-bg;
+  opacity: 0;
+  transition: opacity @bd-dur @bd-ease;
+  &.is-show {
+    opacity: 1;
+  }
+}
+
+/* 面板 */
+.bdrawer__panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: @bd-panel-bg;
+  border-top-left-radius: @bd-radius;
+  border-top-right-radius: @bd-radius;
+  box-shadow: @bd-shadow;
+
+  transform: translateY(100%);
+  transition: transform @bd-dur @bd-ease, opacity @bd-dur @bd-ease;
+  opacity: 0;
+
+  // iOS 安全区
+  padding-bottom: env(safe-area-inset-bottom);
+  display: flex;
+  flex-direction: column;
+
+  .bdrawer--open & {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+/* 内容滚动容器（不需要 header，所以直接滚动内容） */
+.bdrawer__scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+}
+
+/* 可选：当你希望关闭态完全不可见 */
+.bdrawer--close {
+  .bdrawer__mask { opacity: 0; }
+  .bdrawer__panel { opacity: 0; transform: translateY(100%); }
+}

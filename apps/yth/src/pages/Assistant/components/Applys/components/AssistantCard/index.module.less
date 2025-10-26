@@ -1,0 +1,82 @@
+/* src/components/AssistantCard/index.module.less */
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.12);
+  background-size: 100% 105%;
+  background-repeat: no-repeat;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.author {
+  font-size: 12px;
+  color: #6b7280;
+  position: relative;
+  top: -1.6px;
+}
+
+.desc {
+  color: #4b5563;
+  margin-bottom: 14px;
+  font-size: 12px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tagBtn {
+  padding: 2px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid #3c88de;
+  color: #3c88de;
+  background: #eff6ff;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.tagBtn:hover {
+  background: #dbeafe;
+}
+
+.tagBtn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}

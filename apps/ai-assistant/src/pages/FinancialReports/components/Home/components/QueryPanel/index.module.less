@@ -1,0 +1,165 @@
+@import '../../../../variables.less';
+
+// .panel {
+//   border-radius: @radius-xl;
+//   background: #fff;
+//   box-shadow: @shadow-card;
+//   padding: 0;
+//   overflow: hidden;
+//   width: 720px;
+//   border: 1px solid;
+//  border-image: linear-gradient(90deg, #ff0080, #7928ca, #2afadf) 1;
+// }
+.panel {
+  border-radius: @radius-xl;
+  box-shadow: @shadow-card;
+  width: 70%;
+  padding: 0;
+  overflow: hidden;
+
+  /* 关键：透明边框 + 两层背景（内容层 + 渐变边框层） */
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(90deg, #008AE5, #A2B4FF, #3857FF) border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #008AE5, #3857FF);
+  color: #fff;
+  padding: 10px 14px;
+}
+.dataset {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.datasets {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+.title {
+  font-weight: 600;
+}
+.tip {
+  opacity: 0.9;
+  width: 18px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.body {
+  position: relative;
+  padding: 14px;
+}
+.input {
+  width: 100%;
+  min-height: 140px;
+  border: none;
+  outline: none;
+  resize: vertical;
+  font-size: 14px;
+  color: @ink-900;
+  background: #fff;
+  resize: none;
+}
+
+.send {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: none;
+  background: #2279f1;
+  color: @brand-600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .sends {
+    width: 16px;
+    height: 14px;
+  }
+}
+
+.result {
+  padding: 10px 14px 16px;
+  color: @ink-700;
+  font-size: 13px;
+}
+
+/* ===== 筛选区（关键指标 / 分析维度） ===== */
+.filters {
+  background: #f3f8ff;          /* 淡蓝底，贴近截图 */
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(226, 235, 255, 0.9);
+}
+
+.filterRow {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  align-items: center;
+  gap: 10px;
+  & + .filterRow { margin-top: 8px; }
+}
+
+.label {
+  color: #6b7a90;               /* 灰蓝标签色 */
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 基础胶囊 */
+.chip {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 2px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .15s ease;
+  user-select: none;
+}
+
+/* —— 关键指标：蓝色描边 + 选中浅蓝底 —— */
+.chipBlue {
+  color: #2f6fdc;
+  border: 1px solid #cfe0ff;
+  background: #f5f9ff;
+}
+.chipBlue:hover { border-color: #bcd1ff; }
+.chipBlueActive {
+  background: #eaf2ff;
+  border-color: #9fc1ff;
+}
+
+/* —— 分析维度：橙黄实心 —— */
+.chipAmber {
+  color: #9a6b00;
+  background: #ffe9b0;
+  border: 1px solid #ffd37a;
+}
+.chipAmber:hover { filter: brightness(0.98); }
+.chipAmberActive {
+  background: #ffd271;          /* 更接近截图中的深一点黄 */
+  border-color: #ffc146;
+}
+
+/* （其余原有样式保持不变） */

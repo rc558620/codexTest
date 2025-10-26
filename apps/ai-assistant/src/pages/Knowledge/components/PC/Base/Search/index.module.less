@@ -1,0 +1,25 @@
+.search {
+  display: flex;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  overflow: hidden;
+  .input {
+    flex: 1;
+    line-height: 28px;
+    padding-left: 4px;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border: none;
+    outline: none;
+    color: #1d2129;
+    &:focus {
+      background: #fff;
+    }
+    &::placeholder {
+      font-size: 13px;
+      color: rgba(173, 173, 173, 1); // 默认 placeholder 颜色
+    }
+  }
+  .button {
+    width: 80px;
+  }
+}

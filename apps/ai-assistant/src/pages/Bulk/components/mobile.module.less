@@ -1,0 +1,294 @@
+@import '../theme.less';
+// 使用属性选择器提高优先级，覆盖内联样式
+:global(.ant-layout-content[style]) {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+// 备用方案：直接使用更具体的选择器
+:global(.ant-layout .ant-layout-content) {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+:where(.ant-table-thead > tr > th) {
+  // background: rgba(0,127,186,0.05);
+  background: red;
+}
+.table {
+  margin-top: 0px;
+}
+.ant-table-wrapper .ant-table {
+  border-radius: 0px !important;
+}
+.ant-table-container {
+  border-radius: 0px !important;
+}
+
+.bulk__mobile {
+  box-sizing: border-box;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 12px;
+  background:
+    url('@/assets/images/mobileTopBar@2x.png') no-repeat top center / 100% auto,
+    #dbeef7;
+  padding-top: 140px;
+}
+.bulk__mobile__gap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mobile-box {
+  box-sizing: border-box;
+  box-shadow: 0px 4px 18px 1px rgba(0, 127, 186, 0.2);
+  border: 1px solid #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  .mobile-box-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 40px;
+  }
+  .mobile-box-flex-left {
+    // background-color: #fff;
+    // border-top-right-radius: 50px;
+    // height: 33px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .mobile-box-flex-right {
+    font-weight: 400;
+    font-size: 10px;
+    color: #007fba;
+    // background-image: url('@/assets/images/mobile-box-flex-right@2x.png');
+    // background-size: cover;
+    // background: linear-gradient(to bottom, #E0EDFF 0%, #F7F8FA 100%);
+    // height: 33px;
+    width: 175px;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    text-align: right;
+    padding-left: 30px;
+  }
+}
+.mobile-box-table {
+  box-sizing: border-box;
+  padding: 0 10px 10px 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  .mobile-box-table-box {
+    padding-bottom: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #fff;
+  }
+}
+.price-mobile-echart {
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #fff;
+}
+.card__box_mobile {
+  padding: 0 !important;
+}
+.pill-row-mobile {
+  .pill-col-mobile {
+    position: relative !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: auto !important;
+    .pill__mobile {
+      padding: 7px 5px !important;
+      border-radius: 4px !important;
+      .pill__box__mobile {
+        gap: 8px;
+        .pill__label {
+          font-size: 9px;
+          margin-right: 4px !important;
+        }
+        .pill__value {
+          font-size: 10px;
+        }
+      }
+      .pill__subText___mobile {
+        gap: 0px !important;
+      }
+    }
+  }
+}
+
+.yg-panel {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .yg-chips {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+  }
+
+  .yg-chip {
+    background: #f5f7fa;
+    border-radius: 4px;
+    padding: 4px 12px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 10px;
+
+    &__label {
+      color: #1d2129;
+      font-weight: 500;
+      font-size: 10px;
+    }
+    &__value {
+      color: #64748b; /* 默认 */
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* 趋势色（用于“总库存周环比”）*/
+    &--up .yg-chip__value {
+      color: #00b42a;
+    }
+    &--down .yg-chip__value {
+      color: #f53f3f;
+    }
+    &--flat .yg-chip__value {
+      color: #64748b;
+    }
+    &--inv {
+      background: #e5f7e9;
+    }
+    /* 特定胶囊：火电开机率周环比 指定背景色 */
+    &--util {
+      background: #e5f2f8;
+    }
+  }
+
+  /* 统计卡片区 */
+  .yg-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+    margin-top: 12px;
+  }
+
+  .yg-card {
+    border-radius: 12px;
+    padding: 10px;
+    background: #f4f8ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__label {
+      color: #86909c;
+      margin-bottom: 6px;
+      text-align: center;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      .iconYgInv {
+        width: 10px;
+        height: 10px;
+        margin-right: 12px;
+      }
+    }
+    &__value {
+      color: #0f172a;
+      font-size: 17px;
+      font-weight: 500;
+      color: #007fba;
+      text-align: center;
+
+      &--blue {
+        color: #007fba; /* 上周贵州库存数值颜色 */
+      }
+    }
+  }
+
+  /* 上周贵州库存卡片：指定背景 */
+  .yg-card--gzInv {
+    background: #e5f2f8;
+  }
+}
+
+.yg-chip__value.is-empty {
+  color: #007fba !important; /* 没有值时的 “—” 颜色 */
+}
+.price-mobile-echart-yg {
+  height: 250px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #fff;
+}
+.bulk_loading {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.th-badge {
+}
+.summary-cell-hb-bg {
+  // background-color: #e4f3f8 !important;
+  background: #f7fbfd !important;
+  .hb_color {
+    color: @sky-600 !important;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+
+.delta {
+  font-size: 12px;
+  // font-weight: 500;
+  &--up {
+    color: @danger;
+  }
+  &--down {
+    color: @success;
+  }
+  &--flat {
+    color: @sky-600;
+    // font-weight: 500;
+  }
+}
+
+/* 注意：所有 AntD 内部类，用 :global() 包起来 */
+.table--compact {
+  :global(.ant-table) {
+    font-size: 12px;
+  }
+  :global(.ant-table-thead > tr > th) {
+    background: #f8fbff;
+    color: @slate-700; /* @slate-700 的近似值 */
+    font-weight: 600;
+    font-size: 12px;
+  }
+  :global(.ant-table-tbody > tr > td) {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}

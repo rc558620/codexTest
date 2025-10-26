@@ -1,0 +1,126 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  },
+  "description": "YTH前端微模块",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "dev:ai-assistant": "nx run @yth/ai-assistant:dev",
+    "build:ai-assistant": "nx run @yth/ai-assistant:build",
+    "deploy:ai-assistant": "nx run @yth/ai-assistant:deploy:test",
+    "nx:reset": "nx reset && nx daemon --start=true"
+  },
+  "husky": {
+    "hooks": {
+      "post-commit": ""
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "ali"
+    ],
+    "rules": {
+      "type-enum": [
+        2,
+        "always",
+        [
+          "feat",
+          "fix",
+          "docs",
+          "style",
+          "test",
+          "refactor",
+          "chore",
+          "revert",
+          "release"
+        ]
+      ]
+    }
+  },
+  "lint-staged": {
+    "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx,vue}": "eslint",
+    "*.{css,less,scss}": "stylelint"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "prettier": "prettier-config-ali",
+  "eslintConfig": {
+    "extends": [
+      "ali/typescript/react",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "react/prop-types": "off",
+      "react/no-array-index-key": "off",
+      "no-nested-ternary": "off"
+    }
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-ali",
+      "stylelint-prettier/recommended"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.2.2",
+    "@modern-js/eslint-config": "2.59.0",
+    "@modern-js/module-tools": "2.60.5",
+    "@module-federation/enhanced": "0.9.0",
+    "@nx/eslint": "19.4.2",
+    "@rsbuild/core": "1.2.11",
+    "@rsbuild/plugin-less": "1.1.1",
+    "@rsbuild/plugin-react": "1.1.1",
+    "@rsbuild/plugin-sass": "1.1.1",
+    "@rslib/core": "^0.1.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "@yth/rsbuild-plugin-yth": "^1.0.11",
+    "commitlint-config-ali": "^1.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-config-ali": "^15.0.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^8.0.3",
+    "less": "^4.2.0",
+    "lint-staged": "^15.2.2",
+    "nx": "20.4.6",
+    "prettier": "^3.2.5",
+    "prettier-config-ali": "^1.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
+    "stylelint": "^16.3.1",
+    "stylelint-config-ali": "^2.1.1",
+    "stylelint-prettier": "^5.0.0",
+    "typescript": "5.4.2",
+    "vitest": "^2.1.5"
+  },
+  "keywords": [
+    "yth",
+    "yth-platform"
+  ],
+  "author": "chenweilong <chenweilong@yth.cn>",
+  "license": "ISC",
+  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af"
+}

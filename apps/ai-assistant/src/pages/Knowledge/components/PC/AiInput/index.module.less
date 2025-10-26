@@ -1,0 +1,142 @@
+.input-section {
+  width: 100%;
+  height: 228px;
+  padding: 22px;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(160deg, #3377fe, #4c6fff, #8370ff, #ba59ff) border-box;
+  border: 1.5px solid transparent;
+  border-radius: 24px;
+  box-shadow: 0 5px 10px -8px rgba(77, 128, 255, 0.05);
+}
+
+.input-section-box-shadow {
+  box-shadow: 0 10px 40px -4px rgba(77, 128, 255, 0.1);
+}
+
+.top-input-actions {
+  padding-left: 14px;
+  font-size: 14px;
+  color: #010101;
+  font-style: normal;
+}
+
+.input-field {
+  margin-bottom: 20px;
+  border: none;
+  &:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.function-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.func-btn {
+  display: block;
+  padding: 4px 10px;
+  border-radius: 18px;
+  border: 1px solid #e5e6eb;
+  font-size: 14px;
+}
+
+.func-btn:hover {
+  background: #ecf5ff;
+  // border-color: #409eff;
+  // color: #409eff;
+}
+
+.func-btn-checked {
+  background: #ecf5ff;
+  border-color: #409eff;
+  color: #409eff;
+}
+
+.input-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.model-select {
+  width: 120px;
+  border-radius: 18px;
+  border: 1px solid #e5e6eb;
+  outline: none !important;
+}
+
+.model-select .ant-select-selector {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.action-icons {
+  margin: 0 14px;
+  display: flex;
+  gap: 14px;
+}
+
+.action-icon {
+  color: #666;
+  cursor: pointer;
+}
+
+.action-icon:hover {
+  color: #409eff;
+}
+
+.send-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  outline: none;
+  border: none;
+  border-radius: 36px;
+  opacity: 0.3;
+  background: #1677ff;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-appearance: button;
+  &:hover {
+    background: #4096ff;
+  }
+  &.send-btn-active {
+    opacity: 1;
+  }
+  .stop {
+    background: #fff;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+  // background: none;
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   inset: -1px;
+  //   opacity: 1;
+  //   transition: all 0.3s;
+  //   border-radius: inherit;
+  //   z-index: 0;
+  //   background: radial-gradient(0% 0% at 0% 0%, #3c88de 1%, #3f56ff 100%);
+  // }
+  // &:hover::before {
+  //   opacity: 0;
+  // }
+}

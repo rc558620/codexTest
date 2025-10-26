@@ -1,0 +1,159 @@
+/* 容器 */
+.mpa {
+  box-shadow: 0 4px 18px 1px rgba(0, 127, 186, 0.2);
+  border-radius: 12px;
+  padding: 12px 0;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  backdrop-filter: blur(17px);
+}
+
+/* 列表 */
+.mpa__list {
+  display: grid;
+  row-gap: 12px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+
+/* 卡片 */
+.mpa-card {
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.mpa-card--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* 头部 */
+.mpa__head {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+.mpa__titles {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0e2540;
+}
+.mpa__badge {
+  font-size: 12px;
+  background: #007fba;
+  color: #fff;
+  transform: skewX(-10deg);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 5px;
+  font-weight: 500;
+}
+
+/* 两个淡蓝面板 */
+.mpa__panes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  border-radius: 4px;
+  align-items: stretch; /* 等高 */
+}
+.mpa__pane {
+  background: linear-gradient(135deg, rgba(0, 127, 186, 0.05) 0%, rgba(132, 195, 229, 0.02) 100%);
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ====== 面板内部：两元素布局 ====== */
+.stat__row {
+  display: flex;
+  column-gap: 12px;
+}
+
+/* 左元素：标签 + 数值/单位 */
+.stat__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.mpa__label {
+  font-size: 11px;
+  color: #93a2b2;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* 数字与单位 */
+.stat__num--box {
+  display: flex;
+  align-items: baseline;
+
+  .stat__num {
+    font-size: 18px;
+    font-weight: 500;
+    color: #2470b3;
+  }
+  .stat__num--blue {
+    color: #0b69c8;
+  }
+  .mpa__unit {
+    font-size: 9px;
+    color: #8fa2b3;
+    margin-left: 5px;
+    white-space: nowrap;
+  }
+}
+
+/* 右元素：周环比 + 涨跌幅（两行，右下角对齐） */
+.stat__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* 右对齐 */
+  justify-content: space-between  /* 贴底 */
+}
+.stat__split {
+  font-size: 11px;
+  color: #8a96a3;
+}
+
+/* 涨跌色：上红下绿持平灰 */
+.trend {
+  display: inline-flex;
+  gap: 4px;
+  font-weight: 700;
+  position: relative;
+  top: -3px;
+  font-size: 11px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+.trend--up { color: #f53f3f; }   /* ↑ 红 */
+.trend--down { color: #00b42a; } /* ↓ 绿 */
+.trend--flat { color: #7a8a99; }
+
+/* 底部按钮 */
+.mpa__deep {
+  margin: 12px auto 0;
+  width: calc(100% - 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1px 14px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(90deg, rgba(0, 127, 186, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
+  color: #1f3b4d;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.mpa__deep:disabled { cursor: not-allowed; opacity: 0.7; }
+.mpa__deep-icon { margin-right: 8px; width: 16px; height: 16px; }
+.mpa__deep-text { flex: 1; text-align: left; color: #fff; font-size: 12px; }
+.mpa__deep-arrow { font-size: 18px; color: #6c899c; }

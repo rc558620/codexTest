@@ -1,0 +1,59 @@
+/* 移动端：白底圆角卡片，内容自适应宽度，不占满父级 */
+.slide-segment {
+  --seg-bg: #ffffff;
+  --seg-text: #8a96a3;
+  --seg-active: #007FBA;
+  --seg-shadow: 0 4px 16px rgba(47, 123, 255, 0.12);
+
+  position: relative;
+  width: 100%;
+  background: var(--seg-bg);
+  border-radius: 30px;
+  padding: 4px 16px;               /* 0.25rem 0.5rem */
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slide-segment__list {
+  position: relative;
+  display: flex;                  /* 按内容宽度排列，不等分 */
+  align-items: center;
+  gap: 20px;                      /* 1.25rem */
+  margin: 0;
+  padding: 0 4px;                 /* 0 0.25rem */
+  list-style: none;
+}
+
+.slide-segment__item-wrap {
+  display: block;
+}
+
+.slide-segment__item {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 5px 4px;               /* 0.5rem 0.25rem */
+  border-radius: 12px;            /* 0.75rem */
+  font-size: 16px;                /* 1rem */
+  color: var(--seg-text);
+  cursor: pointer;
+  outline: none;
+  transition: color 160ms ease;
+  white-space: nowrap;
+}
+
+.slide-segment__item--active { color: var(--seg-active); }
+.slide-segment__item--disabled { opacity: 0.45; cursor: not-allowed; }
+
+.slide-segment__label { pointer-events: none; }
+
+/* 小短条：绝对定位到底部，根据 JS 计算出的 left 精准放置 */
+.slide-segment__indicator {
+  position: absolute;
+  height: 3px;                    /* 0.25rem */
+  bottom: 0px;                    /* 0.25rem */
+  background: var(--seg-active);
+  border-radius: 999px;
+  transition: left 220ms ease;
+  will-change: left;
+}

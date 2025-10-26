@@ -1,0 +1,12 @@
+.custom-editor {
+  // 默认样式
+  outline: none;
+  /* 输入框为空时显示 placeholder */
+  &:empty:before {
+    content: attr(data-placeholder);
+  }
+  &:focus {
+    border-color: #409eff;
+    box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+  }
+}

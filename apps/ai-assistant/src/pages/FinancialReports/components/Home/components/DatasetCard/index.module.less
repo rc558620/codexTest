@@ -1,0 +1,104 @@
+@blue: #2f81f7;
+@blue-weak: #3c88de;
+@text-strong: #0f172a;  // 标题
+@text-sub: #67748b;     // 次级文字
+@card-shadow: 0 8px 28px rgba(26, 86, 219, 0.08);
+@card-border: rgba(230, 237, 255, 1);
+@topic-bg: #f3f7ff;     // 底部淡蓝
+@surface: #ffffff;
+
+.card {
+  background: @surface;
+  border-radius: 16px;
+  border: 1px solid @card-border;
+  box-shadow: @card-shadow;
+  padding: 18px 20px 16px;
+  width: 520px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px; // 图片里标题较显眼
+  color: @text-strong;
+  line-height: 1.25;
+}
+
+.tipIcon {
+ width: 17px;
+
+}
+
+.categoryRow {
+  margin-top: 10px;
+  color: @text-sub;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.categoryItem { white-space: nowrap; }
+
+.sep {
+  margin: 0 8px;
+  color: #666;
+  font-weight: 400;
+  position: relative;
+  top: -1px;
+}
+
+.topicBar {
+  margin-top: 14px;
+  background: @topic-bg;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+}
+
+.topicLabel {
+  color: #333;
+  font-size: 14px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.topicLinks {
+  display: inline-flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.topicLink,
+.topicLinkBtn {
+  appearance: none;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover .topicLinkText {
+    text-decoration: underline;
+  }
+}
+
+.topicLinkText {
+
+  font-size: 14px;   // 链接略大、醒目
+  font-weight: 500;
+
+  background: linear-gradient(90deg, #008ae5, #3857ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

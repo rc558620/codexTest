@@ -1,0 +1,21 @@
+@import './variables.less';
+
+html, body, #root {
+  height: 100%;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  background: radial-gradient(1200px 600px at 60% 10%, #e9f1ff 0%, #f7fbff 35%, #ffffff 80%) no-repeat;
+  color: @ink-900;
+  font-size: @font-base;
+}
+
+* { box-sizing: border-box; }
+
+.container {
+  max-width: @content-max;
+  margin: 0 auto;
+}

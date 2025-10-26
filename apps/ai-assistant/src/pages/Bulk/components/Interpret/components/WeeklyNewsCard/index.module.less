@@ -1,0 +1,145 @@
+/* 容器 */
+.wnc {
+  --bd: #cfe8ff;
+  --bg: #f6fbff;
+  --text: #334155;
+  --muted: #64748b;
+  --blue: #2a9cf4;
+  --blue-deep: #007fba;
+  --dot: #1088e6;
+  --dash: #ffd88a;
+  --summary-bg: #fffdf4;
+
+  position: relative;
+  background: #fff;
+  border: 1px solid #3399C8;
+  border-radius: 16px;
+  padding: 0 12px 12px 12px;
+  // box-shadow: 0 2px 6px rgba(16, 131, 230, 0.06);
+}
+
+/* 顶部标签区域 */
+.wnc__head {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+/* 蓝色徽章 */
+.wnc__badge__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 116px;
+  height: 30px;
+  background-size: cover;
+  .wnc__badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #fff;
+    font-weight: 700;
+
+    & > img {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.wnc__badge-icon {
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 列表正文 */
+.wnc__list {
+  list-style: none;
+  margin: 10px 2px 0;
+  padding: 0;
+}
+
+.wnc__li {
+  position: relative;
+  display: block;
+  padding-left: 16px; /* 预留小圆点 */
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.wnc__li + .wnc__li {
+  margin-top: 8px;
+}
+
+/* 蓝色小圆点 */
+.wnc__dot {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  background: var(--dot);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(16, 136, 230, 0.12);
+}
+
+.wnc__label {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.wnc__text {
+  color: var(--muted);
+}
+
+/* 简评块（虚线边框+淡黄底） */
+.wnc__summary {
+  margin-top: 12px;
+  border: 1px solid #3399C8;
+  border-radius: 12px;
+  background: linear-gradient( 180deg, #F2F8FC 0%, #F4FAFF 100%);
+  padding: 8px 12px;
+}
+
+.wnc__summary-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #1d2129; /* 黄 */
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.wnc__summary-label {
+  position: relative;
+  z-index: 1;
+  &:after {
+    content: '';
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient( 90deg, #007FBA 0%, rgba(0,127,186,0) 100%);
+    width: 25px;
+    height: 3px;
+    position: absolute;
+    bottom: 2.5px;
+    left: 0;
+  }
+}
+.wnc__summary-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+
+.wnc__summary-text {
+  margin: 0;
+  color: var(--text);
+  font-size: 12px;
+}

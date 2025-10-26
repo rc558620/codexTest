@@ -1,0 +1,194 @@
+/* index.less —— 1:1 贴近截图外观，移除无关样式 */
+@blue-500: #2e90fa;
+@blue-100: #e6f4fb;
+@green-600: #00b42a;
+@red-600: #f53f3f;
+@text-1: #1d2129;
+@text-2: #4e5969;
+@border: #cbe6f2;
+
+.lw {
+  background: transparent;
+  // box-shadow: 0px 6 10px 1px rgba(0, 127, 186, 0.24);
+  // border: 1px solid rgba(255, 255, 255, 0.2);
+  // border-radius: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+/* 顶部标题 */
+.lw__head {
+  padding: 0 0 12px 0;
+  background: transparent;
+}
+.lw__title {
+  color: #1085c7;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: -5px;
+}
+
+/* 正文 */
+.lw__body {
+  padding: 16px;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+/* 列表 */
+.lw__list {
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+.lw__li {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+.lw__dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #007fba;
+  flex: 0 0 auto;
+}
+.lw__li-wrap {
+  display: inline;
+}
+.lw__li-label {
+  color: @text-1;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.lw__li-text {
+  color: @text-2;
+  font-size: 14px;
+}
+
+/* 小节标题 */
+.lw__section-title {
+  color: #007fba;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0px 0 15px;
+}
+
+/* 两张价格卡片 */
+.lw__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.lw__card {
+  position: relative;
+  padding: 12px 14px;
+  border-radius: 4px;
+  background: rgba(0, 127, 186, 0.03);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lw__card-title {
+  color: @text-1;
+  font-size: 14px;
+  font-weight: 600;
+}
+.lw__card-line {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lw__card-num {
+  color: #007fba;
+  font-weight: 800;
+  font-size: 16px;
+  margin-right: 5px;
+}
+.lw__unit {
+  color: @text-2;
+  font-size: 14px;
+  margin-right: 8px;
+}
+.lw__wow {
+  margin-left: auto;
+  color: @text-2;
+  font-size: 14px;
+}
+.lw__wow-num {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 6px;
+  font-weight: 700;
+
+  &.is-up {
+    color: @green-600;
+  }
+  &.is-down {
+    color: @red-600;
+  }
+  &.is-flat {
+    color: #86909c;
+  }
+
+  i {
+    font-style: normal;
+  }
+}
+
+/* 右上角淡色装饰图形（模拟小山/水滴） */
+.lw__card-img {
+  width: 36px;
+  height: 32px;
+}
+
+/* 简评胶囊 */
+.lw__brief {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 16px;
+  border-radius: 50px;
+  background: rgba(0, 127, 186, 0.05);
+  border: 1px solid #007fba;
+}
+.lw__brief-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+  background: #e8f3ff;
+  border: 1px solid @border;
+  position: relative;
+  top: 1px;
+}
+.lw__brief-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: @text-1;
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: '';
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(90deg, #007fba 0%, #007fba00 100%);
+    width: 35px;
+    height: 3px;
+    position: absolute;
+    bottom: 2.5px;
+    left: 0;
+  }
+}
+.lw__brief-text {
+  margin-left: -8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}

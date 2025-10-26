@@ -1,0 +1,60 @@
+/* 根容器：居中 + 仅淡入淡出 */
+.fade-drawer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 预留底部空间，避免关闭按钮被裁剪（按钮在面板外 45px） */
+  box-sizing: border-box;
+
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.fade-drawer--open { pointer-events: auto; opacity: 1; }
+.fade-drawer--close { pointer-events: none; opacity: 0; }
+
+/* 遮罩：淡入淡出 */
+.fade-drawer__mask {
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0; transition: opacity 200ms ease;
+}
+.fade-drawer__mask.is-show { opacity: 1; }
+
+/* 面板：居中的大卡片（不滚动） */
+.fade-drawer__panel {
+  position: relative;
+  background: transparent;
+  border-radius: 16px;
+  overflow: visible; /* 允许关闭按钮溢出到面板外 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 内容内边距可按需调 */
+.fade-drawer__content {}
+
+/* 关闭按钮：底部中间，距面板底边 45px（在面板外） */
+.fade-drawer__close {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -60px;                 /* 关键：与面板底边间距 45px */
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  /* 交互反馈（可选） */
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+.fade-drawer__close:hover { transform: translateX(-50%) scale(1.06); }
+.fade-drawer__close:active { transform: translateX(-50%) scale(0.96); }
+.fade-drawer__close img { width: 100%; height: 100%; display: block; }
+
+

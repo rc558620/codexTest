@@ -1,0 +1,20 @@
+.chip {
+  border: 0;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #eef4ff;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: translateY(-1px);
+  }
+  .text {
+    background: linear-gradient(90deg, #008ae5, #3857ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

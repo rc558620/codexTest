@@ -1,0 +1,38 @@
+@import '../../theme.less';
+
+.app-icon-title {
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: @sky-400;
+    box-shadow: 0 0 0 2px fade(@sky-400, 25%);
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    color: #007FBA;
+    font-weight: 500;
+    font-size: 16px;
+
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: 3px;
+    //   height: 4px;
+    //   width: 50px;
+    //   border-radius: 4px;
+    //   background: linear-gradient(90deg, #007fba 0%, rgba(0, 127, 186, 0) 100%);
+    //   pointer-events: none;
+    // }
+  }
+}

@@ -1,0 +1,59 @@
+/* 移动端：白底圆角卡片，内容自适应宽度，不占满父级 */
+.bdtabs {
+  --bdtabs-bg: #ffffff;
+  --bdtabs-text: #8a96a3;
+  --bdtabs-active: #007FBA;
+  --bdtabs-shadow: 0 4px 16px rgba(47, 123, 255, 0.12);
+
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border-radius: 30px;
+  padding: 4px 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bdtabs__list {
+  position: relative;
+  display: flex;          /* 按内容宽度排列，不等分 */
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0 4px;
+  list-style: none;
+}
+
+.bdtabs__item-wrap {
+  display: block;
+}
+
+.bdtabs__item {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0 4px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--bdtabs-text);
+  cursor: pointer;
+  outline: none;
+  transition: color 160ms ease;
+  white-space: nowrap;
+}
+
+.bdtabs__item--active { color: var(--bdtabs-active); }
+.bdtabs__item--disabled { opacity: 0.45; cursor: not-allowed; }
+
+.bdtabs__label { pointer-events: none; }
+
+/* 小短条：绝对定位到底部，根据 JS 计算出的 left 精准放置 */
+.bdtabs__indicator {
+  position: absolute;
+  height: 3px;
+  bottom: 0;
+  background: var(--bdtabs-active);
+  border-radius: 999px;
+  transition: left 220ms ease;
+  will-change: left;
+}

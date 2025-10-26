@@ -1,0 +1,35 @@
+.knowledge {
+  width: 280px;
+  height: 100%;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.6);
+  .sub-sections-wrap {
+    position: relative;
+  }
+  .sub-section-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(0% 0% at 0% 0%, #3c88de 1%, #3f56ff 100%);
+    border-radius: 16px 4px 16px 4px;
+    opacity: 0.03;
+  }
+  .sub-sections {
+    position: relative;
+    z-index: 2;
+    padding: 12px;
+    cursor: pointer;
+  }
+  .sub-section-title {
+    padding-left: 10px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+  }
+  .title-active {
+    background: #e6f7ff;
+  }
+}

@@ -1,0 +1,58 @@
+@tabAction: "~@/assets/images/tabAction@2x.png";
+
+.desktop-tabs {
+  width: 530px;
+}
+
+.desktop-tabs__list {
+  display: flex;
+  gap: 30px;            /* 适当间距 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 每个 item 等分，内容居中；未选中时白底玻璃 */
+.desktop-tabs__item {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 3px 10px 1px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: 0.3s;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* 选中：背景色 + 白色文字 */
+.desktop-tabs__item--active {
+  color: #fff;
+  background-color: #007FBA;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 3px 10px 1px rgba(0,127,186,0.2);
+  /* 如果需要使用背景图（如 @tabAction），可取消注释以下内容 */
+  /* background-image: url(@tabAction);
+  background-size: cover;
+  background-position: center; */
+}
+
+/* 禁用态 */
+.desktop-tabs__item--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* 文本容器，避免点击穿透 */
+.desktop-tabs__label {
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

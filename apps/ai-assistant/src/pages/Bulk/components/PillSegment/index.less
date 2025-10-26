@@ -1,0 +1,54 @@
+@blue: #007FBA;         // 激活文字
+@blue-soft: rgba(0,127,186,0.1);    // 胶囊底
+@text: #2b3a42;         // 未激活文字
+
+.pill-seg {
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pill-seg__list {
+  position: relative;                 /* 放置滑动背景 */
+  display: inline-flex;               /* 自适应内容，不铺满 */
+  align-items: center;
+  column-gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 40px;                       /* 基准高度（与按钮一致） */
+}
+
+/* 胶囊滑块背景：在列表内部绝对定位，跟随按钮位置与宽度 */
+.pill-seg__bg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);      /* X 位移由内联样式控制 */
+  background: @blue-soft;
+  border-radius: 999px;
+  z-index: 0;
+  transition: transform 220ms ease, width 220ms ease, height 220ms ease;
+  pointer-events: none;
+}
+
+.pill-seg__item-wrap { position: relative; z-index: 1; }
+
+.pill-seg__item {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 6px 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  line-height: 24px;
+  color: @text;
+  cursor: pointer;
+  outline: none;
+  transition: color 160ms ease;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.pill-seg__item--active { color: @blue;}
+.pill-seg__item--disabled { opacity: .5; cursor: not-allowed; }
+.pill-seg__label { pointer-events: none; }

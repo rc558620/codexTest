@@ -1,0 +1,3 @@
+
+    export type RemoteKeys = 'ythUtils/request' | 'ythUtils/common' | 'ythUtils/event' | 'ythUtils/localization' | 'ythUtils/storage' | 'ythUtils/token' | 'ythUtils/tools' | 'ythUtils/Test';
+    type PackageType<T> = T extends 'ythUtils/Test' ? typeof import('ythUtils/Test') :T extends 'ythUtils/tools' ? typeof import('ythUtils/tools') :T extends 'ythUtils/token' ? typeof import('ythUtils/token') :T extends 'ythUtils/storage' ? typeof import('ythUtils/storage') :T extends 'ythUtils/localization' ? typeof import('ythUtils/localization') :T extends 'ythUtils/event' ? typeof import('ythUtils/event') :T extends 'ythUtils/common' ? typeof import('ythUtils/common') :T extends 'ythUtils/request' ? typeof import('ythUtils/request') :any;

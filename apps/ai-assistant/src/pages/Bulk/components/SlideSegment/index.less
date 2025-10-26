@@ -1,0 +1,54 @@
+@blue-600: #007FBA;
+@blue-700: #0A74AE;
+@gray-100: #E5E5E5;
+@text-muted: #999999;
+
+.slide-seg {
+  --seg-x: 0px;
+  --seg-w: 0px;
+  --seg-h: 42px;     /* 作为兜底，实际会被 JS 用 props.height 覆盖 */
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: @gray-100;
+  overflow: hidden;
+  width: fit-content;
+}
+
+/* 滑块：高度来自变量，和按钮保持一致 */
+.slide-seg__thumb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--seg-w);
+  height: var(--seg-h);
+  transform: translateX(var(--seg-x));
+  border-radius: 999px;
+  background: @blue-600;
+  transition: transform .25s ease, width .25s ease, height .25s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 按钮：使用相同变量控制高度，确保与滑块一致 */
+.slide-seg__item {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+   height: var(--seg-h);     /* ← 关键 */
+  border: 0;
+  background: transparent;
+  color: @text-muted;
+  font-size: 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+
+  &.is-active { color: #fff; }
+  &.is-disabled { opacity: .5; cursor: not-allowed; }
+}

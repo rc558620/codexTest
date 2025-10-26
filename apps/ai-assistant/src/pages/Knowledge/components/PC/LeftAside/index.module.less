@@ -1,0 +1,125 @@
+.sidebar {
+  width: 251px;
+  background: url('../../../assets/pc/slider-bg1.png'), url('../../../assets/pc/slider-bg2.png');
+  background-position:
+    center top,
+    // 顶部图片，距离顶部0px
+    center bottom; // 底部图片，距离顶部100%（即底部）
+  background-repeat: no-repeat, no-repeat;
+  background-size:
+    100% auto,
+    // 宽度100%，高度自动
+    100% auto; // 宽度100%，高度自动
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.sidebar-wrap {
+  padding: 20px;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  margin-right: 12px;
+  width: 48px;
+  height: 44px;
+}
+
+.title {
+  font-size: 18px;
+  color: #3f56ff;
+  font-weight: 500;
+}
+
+.new-conversation-btn {
+  width: 100%;
+  margin-bottom: 30px;
+  height: 40px;
+  border-radius: 22px;
+  background: radial-gradient(circle at center top, #3c88de 1%, #3f56ff 100%);
+  color: #fff;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+  -webkit-appearance: button;
+  outline: none;
+  border: none;
+  &:hover {
+    background: #4096ff;
+  }
+}
+.section-main {
+  height: 240px;
+  border-bottom: 1px solid #e5e6eb;
+}
+
+.section {
+}
+
+.section-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+  &.active {
+    background: linear-gradient(90deg, #3c88de, #3f56ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  &.active::before {
+    content: '';
+    position: absolute;
+    left: -50px;
+    width: 140%;
+    height: 100%;
+    background: radial-gradient(0% 0% at 0% 0%, #3c88de 1%, #3f56ff 100%);
+    opacity: 0.2;
+  }
+}
+
+.sub-section {
+  margin-bottom: 12px;
+}
+
+.sub-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  color: #555;
+}
+
+.add-icon {
+  color: #409eff;
+}
+
+.nested-items {
+  margin-left: 20px;
+}
+
+.nested-item {
+  padding: 6px 0;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.nested-item:hover {
+  color: #409eff;
+}
+
+.section-more {
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #999999;
+  cursor: pointer;
+}

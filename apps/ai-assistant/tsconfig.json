@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/*": [
+        "*"
+      ],
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@mf-types",
+    ]
+  },
+  "include": ["src"]
+}

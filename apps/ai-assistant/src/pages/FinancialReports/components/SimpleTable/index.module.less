@@ -1,0 +1,43 @@
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e6edff;
+
+  /* 统一一份列模板，表头和每行共用 */
+  --col-template: max-content max-content max-content 1fr;
+}
+
+.thead {
+  display: grid;
+  grid-template-columns: var(--col-template); // ✅ 内容驱动
+  background: #3C88DE;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 14px;
+  gap: 12px;
+  text-align: center;
+}
+
+.tbody { display: grid; }
+
+.tr {
+  display: grid;
+  grid-template-columns: var(--col-template); // ✅ 与表头对齐
+  padding: 12px 14px;
+  gap: 12px;
+  text-align: center;
+  font-size: 13px;
+  background: #F7FAFE;
+
+  &:nth-child(even) {
+    background: #F0F6FC;
+  }
+}
+
+/* 小优化：前几列为了依据内容测量，避免换行；描述列允许换行并左对齐 */
+.thead > div:nth-child(-n+3),
+.tr > div:nth-child(-n+3) { white-space: nowrap; }
+
+.desc { color: #475569; text-align: left; overflow-wrap: anywhere; }
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }

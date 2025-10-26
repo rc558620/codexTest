@@ -1,0 +1,54 @@
+.page {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e9eff7;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(17, 42, 101, 0.06);
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #142a3b;
+}
+
+.source {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #8a97ab;
+}
+
+.points {
+  margin: 8px 0 0;
+  padding: 0;
+  color: #2f3a49;
+}
+.points > li { margin-bottom: 8px; }
+.points strong { display: block; margin-bottom: 4px; font-weight: 600; }
+.points p { margin: 0; font-size: 13px; line-height: 1.7; color: #4b5563; }
+
+.suggestion {
+  margin-top: 12px;
+  background: #f3f8ff;
+  border: 1px solid #e3efff;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.sugTitle { font-weight: 600; color: #2f81f7; margin-bottom: 6px; }
+.suggestion p { margin: 0; font-size: 13px; line-height: 1.7; color: #3d4b5f; }
+
+/* 让图表有足够高度；你也可以按容器自适应 */
+:global(.chart) { min-height: 280px; }

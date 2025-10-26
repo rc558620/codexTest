@@ -1,0 +1,40 @@
+.mpa__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  box-sizing: border-box;
+  padding-right: 12px;
+}
+.mpa__title_wrapper {
+  display: flex;
+  align-items: center;
+
+}
+.mpa__tip {
+  font-size: 9px;
+  color: #007FBA;
+}
+.mpa__bar {
+  width: 6px;
+  height: 11px;
+  background: #007fba;
+  border-radius: 6px;
+  margin-right: 10px;
+  margin-left: -2px;
+  display: inline-block;
+}
+.mpa__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #007FBA; /* 允许换行 */
+  white-space: normal;
+  word-wrap: break-word; /* 长单词可断开 */
+  word-break: break-word; /* 也可用 break-all，但可能太激进 */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

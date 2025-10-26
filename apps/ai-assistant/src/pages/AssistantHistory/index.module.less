@@ -1,0 +1,162 @@
+/* 无阴影、长按左滑露出删除按钮的样式 */
+
+.history-root {
+  padding: 0px 16px 24px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  color: #1f2a44;
+  overflow-x: hidden;
+  background:
+    url('@/assets/images/Assistant_back@2x.png') no-repeat top center / 100% auto,
+    #ddf0fc;
+}
+
+.history-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  background: transparent;
+  justify-content: space-between;
+}
+
+.history-back {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  color: #333;
+  border: none;
+  background: transparent;
+  position: relative;
+  top: -1px;
+  text-align: left;
+  padding: 0;
+}
+.visible {
+  visibility: hidden;
+}
+.history-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.history-body {
+  padding-top: 8px;
+}
+.history-section + .history-section {
+  margin-top: 22px;
+}
+.history-date {
+  margin: 12px 0 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(31, 42, 68, 0.85);
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+  overflow-x: hidden;
+}
+
+/* 单条 */
+.history-item {
+  position: relative;
+  min-height: 56px; /* 便于垂直居中删除按钮 */
+  overflow-x: hidden;
+}
+
+/* 删除按钮：放在右侧“下层”，默认就位，等待气泡滑开露出 */
+.history-item__delete {
+  position: absolute;
+  right: 0px;
+  top: 24px;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 47px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid #3f56ff59;
+  background: rgba(0, 138, 229, 1);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  z-index: 1; /* 下层 */
+}
+
+/* 气泡：在上层覆盖删除按钮，长按时向左滑 */
+.history-item__bubble {
+  position: relative;
+  z-index: 2; /* 上层 */
+  padding: 12px 16px;
+  border-radius: 4px;
+  overflow-x: hidden;
+  border: 1px solid #FFFFFF;
+  background:
+    radial-gradient(
+      160% 240% at 50% 35%,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.92) 40%,
+      rgba(255, 255, 255, 0) 78%
+    ),
+    linear-gradient(180deg, #f9fbff 0%, #eef4ff 60%, #e7f0ff 100%);
+  transform: translateX(0);
+  transition:
+    transform 200ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 120ms ease;
+}
+
+.history-item__text {
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(17, 24, 39, 0.92);
+   display: block;          /* span 默认 inline，改成 block 便于计算宽度 */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 展开：气泡左滑，露出下层删除按钮 */
+.history-item.is-open .history-item__bubble {
+  transform: translateX(-46px);
+  border-radius: 4px 0 0 4px;
+  border: 1px solid rgba(63, 86, 255, 0.35);
+  border-right: none;
+}
+
+/* 删除按钮按压反馈（仍无阴影） */
+.history-item__delete:active {
+  background: #e6ebff;
+}
+.lp-no-select {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS 禁用长按呼出菜单 */
+  -webkit-tap-highlight-color: transparent;
+  /* 允许垂直滚动，避免阻断页面滚动；不要用 touch-action:none */
+  touch-action: pan-y;
+}
+/* 小屏适配 */
+@media (max-width: 360px) {
+  .history-title {
+    font-size: 20px;
+  }
+  .history-date {
+    font-size: 16px;
+  }
+  .history-item__text {
+    font-size: 15px;
+    line-height: 21px;
+  }
+  .history-item__delete {
+    width: 42px;
+    height: 42px;
+  }
+}

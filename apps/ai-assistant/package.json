@@ -1,0 +1,23 @@
+{
+  "name": "@yth/ai-assistant",
+  "version": "1.0.0",
+  "description": "云天化AI助手前端模块",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "dev:prod": "rsbuild dev --env-mod prod --open",
+    "build": "rsbuild build",
+    "deploy:test": "cross-env YTH_DEPLOY_HOST=10.1.100.171 YTH_DEPLOY_PORT=30110 rsbuild build --env-mode dev",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@yth/icons": "^1.0.93",
+    "@yth/ui": "^1.0.93",
+    "@yth/utils": "^1.0.93",
+    "antd": "^5.27.4",
+    "axios": "^1.12.2",
+    "classnames": "^2.5.1",
+    "crypto-js": "^4.2.0",
+    "echarts": "^6.0.0",
+    "react-ai-renderer": "^0.1.9"
+  }
+}

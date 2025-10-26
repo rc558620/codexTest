@@ -1,0 +1,130 @@
+.bea {
+  background-color: #ffffff1a;
+  border-radius: 12px;
+  padding: 12px 0;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0px 10px 46px 3px rgba(0, 127, 186, 0.2); /* 修正 px */
+  overflow: hidden;
+  border: 1px solid #fff;
+}
+
+.bea__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bea_box {
+  padding: 0 12px;
+}
+
+.bea__card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+/* === 抬头：标题 + 日期（类名与 TSX 一致） === */
+.bea__range_row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.bea__range_title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f2f4a;
+}
+.bea__range_date {
+  font-size: 12px;
+  color: #9aa7b4;
+}
+
+/* 要闻列表 */
+.bea__events {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bea__event {
+  background: rgba(0, 127, 186, 0.03);
+  border-radius: 4px;
+  padding: 12px;
+}
+/* 与 TSX 的 styles['bea__event_head'] / styles['bea__event_detail'] 对齐 */
+.bea__event_head {
+  font-size: 12px;
+  font-weight: 700;
+  color: #213547;
+  margin-bottom: 6px;
+}
+.bea__event_detail {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ===== 后续关注 ===== */
+.bea__follow {
+  margin-top: 12px;
+  border-radius: 12px;
+  overflow: hidden; /* 让标题条与面板圆角连起来 */
+  background: #fff;
+}
+
+/* 标题条蓝底（TSX: styles['bea__follow_title']） */
+.bea__follow_title {
+  background: #007fba;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 12px;
+}
+
+/* 面板主体白底（TSX: styles['bea__follow_body']） */
+.bea__follow_body {
+  padding: 10px 12px 2px 12px;
+  background: rgba(0, 127, 186, 0.03);
+}
+
+/* 栅格（TSX: styles['bea__follow_grid']） */
+.bea__follow_grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 两列 */
+  gap: 6px 12px;
+}
+
+/* 列表（TSX: styles['bea__follow_col']） */
+.bea__follow_col {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 单项（TSX: styles['bea__follow_item']） */
+.bea__follow_item {
+  padding-bottom: 8px;
+}
+.bea__follow_col .bea__follow_item:last-child {
+  border-bottom: none;
+}
+
+.bea__follow_date {
+  color: #007fba;
+  font-size: 12px;
+}
+
+.bea__follow_text {
+  color: #213547;
+  font-size: 12px;
+}
+
+/* 小屏适配（如需可继续细化断点） */
+@media (max-width: 360px) {
+  .bea__follow_grid {
+    grid-template-columns: 1fr;
+  }
+}
